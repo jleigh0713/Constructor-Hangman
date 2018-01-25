@@ -1,23 +1,24 @@
 
-var word = require("./word.js")	;
+var Word = require('./word.js');
 
-module.exports = class Letter
+var Letter = function(ltr)
 {
-	constructor(ltr)
-	{
-		this.ltr = ltr;
-		
-	}
 
-	showBlanks()
-	{
-		this.index = ltr
-		this.appear = false;
-		this.letterRender = function()
-		{
-		return !(this.appear) ? "_": this.idex;
-		}
-	}
+  this.letter = ltr;
+
+  this.appear = false;
+
+  this.showLetter = function() {
+    if(this.letter == ' '){ 
+      this.appear = true;
+      return '  ';
+    }if(this.appear === false){ 
+      return ' _ ';
+    } else{ 
+      return this.letter;
+    }
+
+  };
 }
 
-
+module.exports = Letter;

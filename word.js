@@ -1,58 +1,62 @@
-var letter = require('./letter.js')
+var Letter = require('./letter.js')
 
-module.exports = class Word
+function Word(wrd)
 {
-	constructor(word,ltrs,guessedWord)
-	{
-		this.word
-		this.ltrs = [];
-		this.guessedWord = false;
-	}
+	this.word = wrd;
+	this.ltrs = [];
+	this.wordGuessed = false;
+
 	
-	getLetter() 
+	this.getLtr = function() 
 	{
-		for (var i=0; i<this.word.length; i++)
-		{
-			this.ltrs.push ( new letter(this.word[i]));
-		}
+    	for(var i = 0; i<that.word.length; i++)
+    	{
+	      var newLtr = new Letter(that.word[i]);
+	      this.ltrs.push(newLetter);
 	};
 
-	showltrs()
-	{
-		this.guessedWord = this.ltrs.every(function(guessedLtr)
-		{
-			return guessedLtr.appear;
-		});
-		return this.guessedWord;
-	};
 
-	confirmLtr(chosenltr)
-	{
-		var getback = 0;
+  	this.wordFound = function() 
+  	{
+    	if(this.ltrs.every(function(ltr)
+    	{
+      		return ltr.appear === true;
+    	}
+    	))
+    	{
+      		this.wordGuessed = true;
+      		return true;
+    	}
+    };
 
-		for (var i = 0; i < this.ltrs.length; i++) 
+
+	this.confirmLtr= function(chosenltr)
+	{
+		var whattoreturn = 0;
+
+		this.ltrs.forEach(chosenltr)
 		{
 			if (this.ltrs[i].charac == chosenltr)
 			{
 				this.ltrs[i].appear = true;
-				getback++;
+				whattoreturn++;
 			}
 		}
-		return getback;
+		return whattoreturn;
 	};
 
-	showWord() 
-	{
-		var string = '';
-		for (var i=0; i < this.ltrs.length; i++){
-			string += this.ltrs[i].letterRender();
-		}
-		return string;
-	};
 
+	this.showWord= function() 
+    {
+    	var show = '';
+
+    	that.ltrs.forEach(function(chosenltr)
+    	{
+      		var currentLetter = chosenltr.letterRender();
+      		show += currentLetter;
+    	});
+    	return show;
+	};
 }
 
-
-
-
-
+module.exports = Word;
