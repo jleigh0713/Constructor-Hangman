@@ -1,0 +1,22 @@
+{
+  "name": "c",
+  "version": "1.0.0",
+  "description": "",
+  "main": "const-hangman.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jleigh0713/Constructor-Hangman.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jleigh0713/Constructor-Hangman/issues"
+  },
+  "homepage": "https://github.com/jleigh0713/Constructor-Hangman#readme",
+  "dependencies": {
+    "inquirer": "^5.0.1"
+  }
+}
