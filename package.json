@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/jleigh0713/Constructor-Hangman#readme",
   "dependencies": {
+    "appear": "^1.0.1",
     "inquirer": "^5.0.1"
   }
 }
