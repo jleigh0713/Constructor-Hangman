@@ -13,8 +13,8 @@ function Word(wrd)
 	{
     	for(var i = 0; i<this.word.length; i++)
     	{
-	      var newLtr = new Letter(that.word[i]);
-	      this.ltrs.push(newLetter);
+	      var newLtr = new Letter(this.word[i]);
+	      this.ltrs.push(new Letter);
 	};
 
 //function if we found the current chosen word
@@ -60,6 +60,7 @@ function Word(wrd)
     	});
     	return show;
 	};
+	}
 }
 
 //setting up so this file can be used in another file
