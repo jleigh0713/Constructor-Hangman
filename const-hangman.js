@@ -11,6 +11,8 @@ let game =
     wordList: wordList,
     guessesRemaining: 10,
     curWordConstruct: '',
+
+
     //to show the "board" with either blanks or the correct chosen letters
     renderBoard: function () 
     {
@@ -31,6 +33,7 @@ let game =
         // adds the generated word to the word constructor
         this.curWordConstruct = new Word(randWord)
     },
+
     //starting the game and running the generateWord function to get the first word and to show the board and to prompt the user to make their letter guesses
     startGame: function () 
     {
@@ -39,6 +42,7 @@ let game =
         console.log(this.renderBoard());
         this.makeGuess();
     },
+
     //check the guesses
     evaluateGuess: function (guess) 
     {
@@ -46,7 +50,7 @@ let game =
         //maps over the letters in the word that is stored in the curWordConstruct from the random word generated and if one of the letters match the guess then make it visible
         let updatedWord = t.map((val, index) => 
         {
-            if (guess === val.character) 
+            if (guess === val.character.toUpperCase()) 
             {
                 val.visible = true;
             }
@@ -60,7 +64,10 @@ let game =
         this.makeGuess();
     },
     //promptingthe suer to make a guess
-    makeGuess: function () {
+    makeGuess: function () 
+    {
+        const me = this;
+
         inquirer
             .prompt([
             {
@@ -72,16 +79,16 @@ let game =
             .then(function (val) 
             {
                 var n = val.choice.toUpperCase();
-                if (!isNaN(value)) 
+                /*if (!isNaN(val)) 
                 {
                     return true;
                 } 
                 else 
                 {
                     return false;
-                }
+                }*/
                 console.log(n);
-                game.evaluateGuess(n);
+                me.evaluateGuess(n);
                 // need to create function to check if guessed letter is correct
 
             });

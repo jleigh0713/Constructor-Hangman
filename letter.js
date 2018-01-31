@@ -7,9 +7,10 @@ function Letter(character)
     this.displayState = function ()
      {
         if(this.visible)
-        {
+        {   //returns the letter stored in character if its supposed to show, ex. 'l'
             return ` ${this.character} `;
-        } else 
+        } 
+        else 
         {
             return " _ ";
         }
